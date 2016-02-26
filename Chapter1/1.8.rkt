@@ -1,0 +1,16 @@
+#lang racket
+(define (square x) (* x x))
+(define (cube x) (* x x x))
+(define (curt x)
+  (define (curt-iter y)
+    (if (good-enough? y)
+        y
+        (curt-iter (improve y))))
+  (define (good-enough? y)
+    (< (abs (- (cube y) x))
+       0.001))
+  (define (improve y)
+    (/ (+ (/ x (square y)) (* y 2)) 
+       3))
+   ;(/ (+ y (/ x y)) 2))
+  (curt-iter (/ x 2.0)))
