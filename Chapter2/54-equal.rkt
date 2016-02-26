@@ -1,5 +1,11 @@
 #lang racket
-(define (memq item x)
-  (cond ((null? x) false)
-        ((eq? item (car x)) x)
-        (else (memq item (cdr x)))))
+
+(define (equal? x y)
+  (or (and (pair? x)
+           (pair? y)
+           (equal? (car x) (car y))
+           (equal? (cdr x) (cdr y)))
+      (and 
+       (not (pair? x))
+       (not (pair? y))
+       (eq? x y))))
