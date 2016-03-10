@@ -1,4 +1,5 @@
 compiled/
 *.sublime-project
 *.sublime-workspace
+.#*
 
